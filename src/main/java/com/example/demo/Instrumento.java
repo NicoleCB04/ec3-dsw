@@ -14,7 +14,7 @@ public class Instrumento {
 
     @Id @GeneratedValue Long id;
     private String nombre;
-    private Integer id_categoria;
+
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_categoria")
@@ -32,12 +32,7 @@ public class Instrumento {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public Integer getId_categoria() {
-        return id_categoria;
-    }
-    public void setId_categoria(Integer id_categoria) {
-        this.id_categoria = id_categoria;
-    }
+
     public Categoria getCategoria() {
         return categoria;
     }
