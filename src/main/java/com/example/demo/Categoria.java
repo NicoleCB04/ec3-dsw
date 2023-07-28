@@ -5,6 +5,7 @@ import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
@@ -14,18 +15,20 @@ import jakarta.persistence.Table;
 @Table (name = "categoria")
 public class Categoria {
 
-    private @Id @GeneratedValue Long id;
+@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer id;
     private String nombre;
 
     @OneToMany(targetEntity = Instrumento.class, mappedBy = "categoria")
     @OrderBy("nombre ASC")
     private Set<Instrumento> instrumentos = new HashSet<Instrumento>();
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
