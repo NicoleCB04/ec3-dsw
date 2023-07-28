@@ -13,9 +13,7 @@ import jakarta.persistence.Table;
 @Table(name = "instrumento")
 public class Instrumento {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    @Id @GeneratedValue Long id;
     private String nombre;
     private Integer id_categoria;
 
@@ -23,10 +21,10 @@ public class Instrumento {
     @JoinColumn(name = "id_categoria")
     private Categoria categoria;
     
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getNombre() {
